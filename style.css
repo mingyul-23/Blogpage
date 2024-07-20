@@ -1,0 +1,232 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --header-bg-color: #007bff;
+    --header-text-color: #ffffff;
+    --button-bg-color: #007bff;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #0056b3;
+    --toolbar-bg-color: #ffffff;
+    --toolbar-text-color: #000000;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1c1b1bd2;
+    --text-color: #ffffff;
+    --header-bg-color: #140ecc;
+    --header-text-color: #ffffff;
+    --button-bg-color: #140ecc;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #2a1bfa;
+    --toolbar-bg-color: #333333;
+    --toolbar-text-color: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    width: 100%;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em; /* Increase font size */
+    position: relative;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 80%;
+    background: var(--bg-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 20px;
+    font-size: 1.2em; /* Increase font size */
+}
+
+.left-side {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+}
+
+.calendar-box {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    width: 100%;
+}
+
+.month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.month-name {
+    font-size: 1.2em; /* Increase font size */
+}
+
+.weekdays {
+    display: flex;
+    background-color: #ddd;
+}
+
+.weekdays div {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+    width: 14.28%;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: #f1f1f1;
+}
+
+.day.saved-entry {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+}
+
+.saved-entries {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.saved-entries h2 {
+    margin-top: 0;
+}
+
+.right-side {
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#dateInput, #titleInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Increase font size */
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+}
+
+#infoInput {
+    width: 100%;
+    height: 60%; /* Adjusted height */
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Increase font size */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    white-space: pre-wrap; /* Ensure text wraps */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em; /* Increase font size */
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Make the toolbar the same width as the text input */
+    margin-bottom: 0; /* Remove margin between the toolbar and the input box */
+    background-color: var(--toolbar-bg-color); /* Ensure toolbar matches the background */
+    color: var(--toolbar-text-color); /* Ensure toolbar text matches the text color */
+}
+
+.toolbar button,
+.toolbar select {
+    background-color: var(--toolbar-bg-color);
+    color: var(--toolbar-text-color);
+    border: 1px solid var(--text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em; /* Increase font size to match text area */
+}
+
+.toolbar button:hover,
+.toolbar select:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.toolbar button {
+    font-weight: bold;
+}
+
+#toggleDarkMode {
+    position: center;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#toggleDarkMode:hover {
+    background-color: var(--button-hover-bg-color);
+}
